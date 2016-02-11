@@ -1,0 +1,2 @@
+module Web::CalendarsHelper
+end

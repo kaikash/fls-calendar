@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %title Календарь
+    %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css", :rel => "stylesheet"}
+    %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css", :rel => "stylesheet"}
+    %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css", :rel => "stylesheet"}
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
+    - if current_user
+      .user-info{'data-name': current_user.name, 'data-surname': current_user.surname}
+    = render 'shared/header'
+    .container
+      - if flash[:error]
+        .alert.alert-danger
+          %a.close{"data-dismiss" => "alert"} ×
+          = flash[:error]
+      - if flash[:notice]
+        .alert.alert-info
+          %a.close{"data-dismiss" => "alert"} ×
+          = flash[:notice]
+      = yield
+    %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"}

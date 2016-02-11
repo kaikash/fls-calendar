@@ -1,0 +1,44 @@
+- if @user.errors.any?
+  .alert.alert-danger
+    %a.close{"data-dismiss" => "alert"} ×
+    = @user.errors.full_messages[0]
+= simple_form_for @user, url: user_setting_path, method: :patch, html: {class: 'form-horizontal'} do |f|
+  .sec.sec-dark
+    %h4 Персональная информация
+    .form-group
+      = f.label :name, class: 'col-sm-2 control-label'
+      .col-sm-8
+        = f.text_field :name, class: 'form-control', placeholder: 'Имя'
+    .form-group
+      = f.label :surname, class: 'col-sm-2 control-label'
+      .col-sm-8
+        = f.text_field :surname, class: 'form-control', placeholder: 'Фамилия'
+    .form-group
+      = f.label :email, class: 'col-sm-2 control-label'
+      .col-sm-8
+        = f.text_field :email, class: 'form-control', placeholder: 'Email'
+    .form-group
+      .col-sm-offset-2.col-sm-8
+        = link_to 'Изменить пароль', edit_password_user_setting_path
+    .form-group
+      .col-sm-offset-2.col-sm-8
+        = f.submit 'Сохранить', class: 'btn btn-default btn-block'
+
+/ = simple_form_for UserEditForm.new, url: web_user_path, method: :patch, html: {class: 'form-horizontal'} do |f|
+/   .sec.sec-dark
+/     %h4 Защита
+/     .form-group
+/       = f.label :email, class: 'col-sm-2 control-label'
+/       .col-sm-8
+/         = f.text_field :email, class: 'form-control', placeholder: 'Email'
+/     .form-group
+/       = f.label :password, class: 'col-sm-2 control-label'
+/       .col-sm-8
+/         = f.input_field :password, class: 'form-control', type: :password, placeholder: 'Введите старый пароль'
+/     .form-group
+/       = f.label :password, class: 'col-sm-2 control-label'
+/       .col-sm-8
+/         = f.input_field :password, class: 'form-control', type: :password, placeholder: 'Новый пароль'
+/     .form-group
+/       .col-sm-offset-2.col-sm-8
+/         = f.submit "Сохранить", class: 'btn btn-default btn-block'

@@ -1,0 +1,77 @@
+.dropdown ul.dropdown-menu {
+  border-radius: 4px;
+  box-shadow: none;
+  margin-top: 20px;
+  width: 200px;
+  &:before {
+    content: "";
+    border-bottom: 10px solid #fff;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    z-index: 10;
+  }
+  &:after {
+    content: "";
+    border-bottom: 12px solid #ccc;
+    border-right: 12px solid transparent;
+    border-left: 12px solid transparent;
+    position: absolute;
+    top: -12px;
+    right: 14px;
+    z-index: 9;
+  }
+}
+
+table.table-calendar {
+  .day {
+    font-size: 26px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+  }
+
+  .title-event {
+  }
+
+  .sshow {
+    display: inline !important;
+  }
+
+  input.title-event {
+    width: 80%;
+  }
+
+  .delete-btn {
+    font-size: 12px;
+  }
+
+  .count {
+    text-align: right;
+
+    a {
+      font-size: 11px;
+    }
+  }
+}
+
+.calendar-title {
+  float: left !important;
+}
+
+.calendar-pagination {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 24px;
+  float: left;
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+
+
+
+
+

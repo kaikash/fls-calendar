@@ -1,0 +1,39 @@
+ru:
+  activerecord:
+    models:
+      user: Пользователь
+      event: Событие
+    attributes:
+      user:
+        name: Имя
+        surname: Фамилия
+        password: Пароль
+      event:
+        title: Заголовок
+        date: Дата
+        reiteration: Повторять
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              email_or_password_invalid: или Email неверны
+  activemodel:
+    models:
+      user: Пользователь
+    attributes:
+      user:
+        password: Пароль
+      user_update_password:
+        old_password: Старый пароль
+        new_password: Новый пароль
+    errors:
+      models:
+        user_update_password:
+          attributes:
+            old_password:
+              password_invalid: неверный
+        user:
+          attributes:
+            password:
+              email_or_password_invalid: или Email неверны

@@ -1,0 +1,43 @@
+%h1.calendar-title= "#{I18n.t("date.month_names")[@events[0].date.month]} #{@events[0].date.year}"
+.calendar-pagination
+  = link_to '<<', calendar_path(year: @events[0].date.year-1, month: @events[0].date.month)
+  = link_to '<', calendar_path(year: @events[0].date.month == 1 ? @events[0].date.year-1 : @events[0].date.year, month: @events[0].date.month == 1 ? 12 : @events[0].date.month-1)
+  = link_to '>', calendar_path(year: @events[0].date.month == 12 ? @events[0].date.year+1 : @events[0].date.year, month: @events[0].date.month == 12 ? 1 : @events[0].date.month.next)
+  = link_to '>>', calendar_path(year: @events[0].date.year.next, month: @events[0].date.month)
+.clearfix
+%table.table.table-bordered.table-calendar
+  %thead
+    %tr
+      %th Понедельник
+      %th Вторник
+      %th Среда
+      %th Четверг
+      %th Пятница
+      %th Суббота
+      %th Воскресенье
+  - @offset.times do
+    %td
+  - @events.each_with_index do |day, day_num|
+    %td{id: day_num+1}
+      %span.pull-left.day= day.date.day
+      %span.pull-right.count
+        = day.events.count_to_show
+        - if day.events.count > 1
+          %br
+          %a.show_all{id: day_num+1} Показать все
+          %a.hide.hide_all{id: day_num+1} Скрыть все
+      %span.clearfix
+        %table.table.table-event
+          - if day.events.count == 0
+            %tr
+              %td
+                %i.center Нет событий
+          - else
+            - day.events.each_with_index do |event, ind|
+              %tr
+                - if ind == 0
+                  %td= event.title
+                - else
+                  %td.toggleable.hide= event.title
+    - if day.date.wday == 0
+      %tr
