@@ -19,5 +19,8 @@
       .col-sm-8
         = f.select :reiteration, Event.reiterations.keys, include_blank: false
     .form-group
+      .col-sm-8.col-sm-offset-2
+        = f.input :private
+    .form-group
       .col-sm-offset-2.col-sm-8
         = f.submit 'Создать', class: 'btn btn-default btn-block'

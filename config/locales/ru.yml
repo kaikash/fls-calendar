@@ -12,6 +12,7 @@ ru:
         title: Заголовок
         date: Дата
         reiteration: Повторять
+        private: Не показывать никому
     errors:
       models:
         user:

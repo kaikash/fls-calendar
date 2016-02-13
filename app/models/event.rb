@@ -7,6 +7,9 @@ class Event < ActiveRecord::Base
 
   paginates_per 40
 
+  scope :hidden, -> { where(private: true) }
+  scope :visible, -> { where(private: false) }
+
   enum reiteration: [:empty, :daily, :weekly, :monthly, :annually]
 
   def self.calendar(date)

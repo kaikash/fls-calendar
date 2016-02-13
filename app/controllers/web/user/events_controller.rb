@@ -32,7 +32,7 @@ class Web::User::EventsController < Web::User::ApplicationController
 
   private 
   def event_params
-    params.require(:event).permit(:title, :date, :reiteration)
+    params.require(:event).permit(:title, :date, :reiteration, :private)
   end
 
   def set_events

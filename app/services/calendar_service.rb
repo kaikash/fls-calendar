@@ -12,7 +12,7 @@ class CalendarService
     if user
       events = user.events.calendar(date)
     else
-      events = Event.calendar(date)
+      events = Event.visible.calendar(date)
     end
     calendar_events = Array.new date.at_end_of_month.day, []
     date.at_end_of_month.day.times do |i|
